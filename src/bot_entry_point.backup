@@ -1,0 +1,49 @@
+### @author: Pedro Gronda Garrigues (taken from IBKR docs)
+
+## dependencies
+import ibapi
+from ibapi.client import EClient
+from ibapi.wrapper import EWrapper
+# orders / contracts
+from ibapi.contract import Contract
+from ibapi.order import * # order types
+# misc
+import threading, time
+
+## vars
+DEFAULT_PORT = 7496
+
+## Interactive Brokers (IB) connection
+class IBApi(EWrapper, EClient):
+    """
+
+    """
+
+    def __init__(self):
+        EClient.__init__(self, self)
+
+# bot logic
+class Bot:
+    ib = None
+    def __init__(self):
+        ib = IBApi()
+        ib.connect("127.0.0.1", DEFAULT_PORT, 1)
+        ib.run()
+
+        # init thread
+        ib_thread = threading.Thread(target=self.run_loop, daemon=True)
+        ib_thread.start()
+        time.sleep(1) # prevent thread overlap
+
+        # get symbol info
+        symbol = input("Enter symbol you want to trade: ")
+
+        # contract
+        contract = Contract()
+        contract.symbol = symbol.upper()
+
+    def run_loop(self):
+        self.ib.run()
+
+# start
+bot = Bot()
