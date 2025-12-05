@@ -1,0 +1,58 @@
+# IBKR TWS Trading Bot - Requirements
+# Python 3.8+
+
+# =============================================================================
+# CORE DEPENDENCIES
+# =============================================================================
+
+# Interactive Brokers API
+ibapi==9.81.1.post1
+
+# market data prov
+yfinance==0.2.66
+# polygon-api-client==1.14.0  # Polygon.io (optional - free tier available)
+# alpha-vantage==2.3.1        # Alpha Vantage (optional - free tier available)
+
+# config management
+python-dotenv==1.1.1  # env variable management
+
+# data processing
+pandas==2.3.3  # data manip
+numpy==2.2.4   # numerical compute
+
+# logging & monitoring
+coloredlogs==15.0.1  # colored console logging (optional)
+
+# =============================================================================
+# OPTIONAL DEPENDENCIES
+# =============================================================================
+
+# testing
+# pytest==8.0.0
+# pytest-asyncio==0.23.4
+# pytest-cov==4.1.0
+
+# dev tools
+# black==24.1.1      # code formatter
+# flake8==7.0.0      # linter
+# mypy==1.8.0        # type checker
+
+# advanced features
+# matplotlib==3.8.2  # plotting for backtesting
+# jupyter==1.0.0     # Jupyter notebooks for analysis
+# ta-lib==0.4.28     # technical analysis library (requires system TA-Lib)
+
+# =============================================================================
+# INSTALLATION NOTES
+# =============================================================================
+#
+# basic installation:
+#   pip install -r requirements.txt
+#
+# with optional dependencies:
+#   pip install -r requirements.txt polygon-api-client alpha-vantage
+#
+# for development:
+#   pip install -r requirements.txt pytest black flake8
+#
+# =============================================================================
