@@ -19,20 +19,19 @@ A well-architected trading bot for Interactive Brokers TWS/Gateway with free mar
 **Don't need expensive market data subscriptions to develop/test the bot :)**
 
 1. **Yahoo Finance** (Recommended for dev)
-   - \ Completely FREE - no API key needed
-   - \ Real-time quotes (15-20 min delayed)
-   - \ Historical data
-   - \ No rate limits for reasonable use
+   - Completely FREE - no API key needed
+   - Real-time quotes (15-20 min delayed)
+   - Historical data
+   - No rate limits for reasonable use
 
 2. **IBKR Delayed Data** (FREE)
-   - \ 15-20 minute delayed market data
-   - \ Works with paper trading account
-   - \ No subscription required
-
+   - 15-20 minute delayed market data
+   - Works with paper trading account
+   - No subscription required
 3. **IBKR Paper Trading Account** (FREE)
-   - \ Simulated trading environment
-   - \ Test strategies risk-free
-   - \ Full API access
+   - Simulated trading environment
+   - Test strategies risk-free
+   - Full API access
 
 ### 🛡️ Risk Management
 - Position size limits
@@ -382,12 +381,6 @@ tail -f logs/tradingbot.log
 - Test thoroughly with paper trading before going live
 - Use at your own risk (!!!)
 - The authors (listed below) are not responsible for any financial losses
-
-### 5. Run the Bot
-
-```bash
-python main.py
-```
 
 ## 📄 License
 

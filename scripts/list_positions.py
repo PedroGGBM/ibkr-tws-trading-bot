@@ -52,17 +52,17 @@ def list_positions():
     
     print("STATUS: Connected!\n")
     
-    # Request positions
+    # request positions
     print("Requesting current positions...")
     client.request_positions()
     
-    # Wait for positions to be received
+    # wait for positions to be received
     time.sleep(2)
     
-    # Get all positions
+    # get all positions
     positions = client.get_all_positions()
     
-    # Display results
+    # display results
     print("\n" + "=" * 70)
     print(f"CURRENT HOLDINGS ({len(positions)} positions)")
     print("=" * 70 + "\n")
@@ -74,7 +74,7 @@ def list_positions():
         print("  • You're connected to the wrong account (paper vs live)")
         print("  • Positions are still loading (try running again)")
     else:
-        # Print table header
+        # print table header
         print(f"{'Symbol':<10} {'Quantity':>12} {'Avg Cost':>12} {'Market Value':>15}")
         print("-" * 70)
         
@@ -86,7 +86,7 @@ def list_positions():
             market_value = abs(quantity * avg_cost)
             total_value += market_value
             
-            # Format position type
+            # format position type
             pos_type = "LONG" if quantity > 0 else "SHORT"
             
             print(f"{symbol:<10} {quantity:>12.0f} {'$' + f'{avg_cost:,.2f}':>12} "
@@ -95,7 +95,7 @@ def list_positions():
         print("-" * 70)
         print(f"{'TOTAL':<10} {'':<12} {'':<12} {'$' + f'{total_value:,.2f}':>15}")
     
-    # Request account summary for additional info
+    # request account summary for additional info
     print("\n" + "=" * 70)
     print("ACCOUNT SUMMARY")
     print("=" * 70 + "\n")
@@ -114,7 +114,7 @@ def list_positions():
     if buying_power:
         print(f"Buying Power:          ${float(buying_power):,.2f}")
     
-    # Disconnect
+    # disconnect
     print("\nDisconnecting...")
     client.disconnect_gracefully()
     

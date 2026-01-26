@@ -9,7 +9,7 @@ Quick script to verify IBKR TWS/Gateway connection is working.
 import sys
 from pathlib import Path
 
-# Add parent directory to path
+# add parent directory to path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from src.connection.ibkr_client import IBKRClient
@@ -24,14 +24,14 @@ def test_connection():
     logger.info("Testing IBKR Connection")
     logger.info("=" * 60)
     
-    # Connection parameters
+    # connection parameters
     host = "127.0.0.1"
     port = 7497  # Paper trading
     client_id = 1
     
     logger.info(f"Connecting to {host}:{port} (Paper Trading)")
     
-    # Create client
+    # create client
     client = IBKRClient(
         host=host,
         port=port,
@@ -39,24 +39,24 @@ def test_connection():
         use_delayed_data=True
     )
     
-    # Try to connect
+    # try to connect
     if client.connect_and_run():
         logger.info("STATUS: Successfully connected to IBKR!")
         
-        # Request account summary
+        # request account summary
         logger.info("Requesting account summary...")
         client.request_account_summary()
         
-        # Wait a bit for data
+        # wait a bit for data
         import time
         time.sleep(2)
         
-        # Print account info
+        # print account info
         net_liq = client.get_account_value("NetLiquidation")
         if net_liq:
             logger.info(f"Account Net Liquidation: ${float(net_liq):,.2f}")
         
-        # Request positions
+        # request positions
         logger.info("Requesting positions...")
         client.request_positions()
         time.sleep(1)
@@ -67,7 +67,7 @@ def test_connection():
         for symbol, pos in positions.items():
             logger.info(f"  {symbol}: {pos['position']} @ ${pos['avg_cost']:.2f}")
         
-        # Disconnect
+        # disconnect
         logger.info("Disconnecting...")
         client.disconnect_gracefully()
         

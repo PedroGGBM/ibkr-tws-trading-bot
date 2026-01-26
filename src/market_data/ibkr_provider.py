@@ -137,13 +137,13 @@ class IBKRMarketDataProvider(MarketDataProvider):
         """Subscribe to real-time quote updates"""
         for symbol in symbols:
             if symbol in self._quote_req_ids:
-                # Already subscribed
+                # already subscribed
                 self._callbacks[symbol] = callback
                 continue
             
             contract = self._create_contract(symbol)
             
-            # Create wrapper callback that converts to Quote object
+            # create wrapper callback that converts to Quote object
             def quote_callback(req_id, tick_type, value):
                 quote = self.get_quote(symbol)
                 if quote and callback:
